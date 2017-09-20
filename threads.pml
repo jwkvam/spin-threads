@@ -14,10 +14,10 @@ proctype A()
 }
 
 init {
-    N = 10;
+    N = 4;
     shared = 0;
     atomic {
-        run A(); run A()
+        run A(); run A(); run A()
     }
     do
     :: (_nr_pr == 1) -> break
