@@ -14,7 +14,7 @@ proctype A()
 }
 
 init {
-    N = 4;
+    N = 5;
     shared = 0;
     atomic {
         run A(); run A(); run A()
