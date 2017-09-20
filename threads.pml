@@ -8,7 +8,6 @@ proctype A()
     counter = 0;
     do
     :: (counter < N) -> tmp = shared; shared = tmp + 1; counter++; printf("shared = %d\n", shared)
-    :: (counter < 0) -> assert(false)
     :: else -> break
     od
     assert counter == N
