@@ -7,7 +7,16 @@ proctype A()
     int tmp;
     counter = 0;
     do
-    :: (counter < N) -> tmp = shared; shared = tmp + 1; counter++; printf("shared = %d\n", shared)
+    :: (counter < N) ->
+        atomic {
+            tmp = shared;
+            printf("read shared %d\n", shared);
+        }
+        atomic {
+            shared = tmp + 1;
+            printf("write shared = %d\n", shared);
+        };
+        counter++
     :: else -> break
     od
     assert counter == N
