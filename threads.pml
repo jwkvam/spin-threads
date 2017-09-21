@@ -15,8 +15,8 @@ proctype A()
         atomic {
             shared = tmp + 1;
             printf("write shared = %d\n", shared);
-        };
-        counter++
+            counter++
+        }
     :: else -> break
     od
     assert counter == N
@@ -28,8 +28,8 @@ init {
     atomic {
         run A(); run A(); run A()
     }
-    do
-    :: (_nr_pr == 1) -> break
-    od
+    if
+    :: (_nr_pr == 1)
+    fi
     assert shared > 2
 }
