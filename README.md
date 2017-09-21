@@ -51,7 +51,7 @@ pan: rate 1762527.5 states/second
 spin -tc threads.pml
 ```
 
-## Output
+### Output
 ```
                   read shared 0
               read shared 0
